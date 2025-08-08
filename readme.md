@@ -8,10 +8,10 @@ Based on this ```.dbc``` file the ```cmmc.c``` and ```cmmc.h``` sources are gene
 Next, based on the previously generated files the ```cmmc_decoder.mex``` is generated, it can be used for efficient decoding of the can frames in the ```.m``` scripts.
 
 
-### Detailed description of the C sources generation based on ```.dbc```
+### Detailed description of the common C sources generation based on ```.dbc```
 1. Launch the python enviromet ```source venv/Scripts/activate```
 2. Run the ```generate.sh``` script?
-3. Th
+3. Run ```python -m cantools generate_c_source --use-float --database-name src/cmmc can_messages_mini_celka.dbc```
 
 
 

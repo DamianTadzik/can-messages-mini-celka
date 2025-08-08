@@ -12,13 +12,12 @@ Next, based on the previously generated files the ```cmmc_decoder.mex``` is gene
 1. Launch the python enviromet ```source venv/Scripts/activate```
 2. Run the ```generate.sh``` script?
 3. Run ```python -m cantools generate_c_source --use-float --database-name src/cmmc can_messages_mini_celka.dbc```
-
+4. To exit the venv ```deactivate```
 
 
 ## Requirements
 - Python 3.8
 - Matlab2018b+
-
 
 
 ### First ever launch of python enviroment:
@@ -33,7 +32,6 @@ Next, based on the previously generated files the ```cmmc_decoder.mex``` is gene
 2. Run the ```python -m venv venv```
 3. Activate the enviroment ```source venv/Scripts/activate```
 4. Install the packages ```pip install -r requirements.txt```
-
 
 
 ## Useful resources:

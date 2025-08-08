@@ -2,9 +2,10 @@
 % python -m cantools generate_c_source --use-float --database-name cmmc can_messages_mini_celka.dbc
 
 database_name = 'cmmc';
+dbc_file = 'test.dbc';
 
 % Call the cantools from the venv
-system(['"', fullfile(pwd, 'venv', 'Scripts', 'python.exe'), '" -m cantools generate_c_source --use-float --database-name ' database_name ' can_messages_mini_celka.dbc']);
+system(['"', fullfile(pwd, 'venv', 'Scripts', 'python.exe'), '" -m cantools generate_c_source --use-float --database-name ' database_name ' ' dbc_file]);
 
 % Move generated files into src/
 movefile([database_name '.c'], 'src');

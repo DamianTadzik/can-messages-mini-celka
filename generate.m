@@ -12,21 +12,19 @@ movefile([database_name '.c'], 'src');
 movefile([database_name '.h'], 'src');
 
 
-%% Generate code from template_decoder.c and name it %database_name%_decoder.c
+%% Generate code from template_decoder.c and name it %database_name%_can_decoder.c
 
-%where should i obtain the values to fill?
 
-%what values i want to fill
+%% Compile the mex function and copy it to src
 
-% I want to obtain something like that after all
-% decoded = struct( ...
-%     'frame_name', 'MSG1', ...
-%     'frame_id', uint32(0x20), ...
-%     'frame_length', uint8(8), ...
-%     'signals', struct( ...
-%         'speed', 12.3, ...
-%         'acceleration', 4.5, ...
-%         'distance', 100, ...
-%         'status', 1 ...
-%     ) ...
-% );
+% mex_source_file = [database_name '_decoder'];
+mex_source_file = 'test_decoder';
+
+mex(['cmex\' mex_source_file '.c'], 'src\cmmc.c');
+
+movefile([mex_source_file '.mexw64'], 'src');
+
+
+%% TESTS
+
+test_decoder(uint32(32), uint8([0 0 0 0 0 0 0 0]))

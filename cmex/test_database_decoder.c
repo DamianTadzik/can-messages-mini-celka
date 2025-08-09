@@ -22,7 +22,7 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
                 struct cmmc_msg1_t tmp;   // temporary structure
                 if (cmmc_msg1_unpack(&tmp, data, CMMC_MSG1_LENGTH))
                     return 2;
-    
+
                 /* Local static arrays so that the pointers remain valid after return */
                 static double signal_values[4]; 
                 static const char *signal_names[4] = {
@@ -31,13 +31,13 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
                     CMMC_MSG1_DISTANCE_NAME,
                     CMMC_MSG1_STATUS_NAME,
                 };
-                    
+
                 /* Decode all single signals */
                 signal_values[0] = (double)cmmc_msg1_speed_decode(tmp.speed);
                 signal_values[1] = (double)cmmc_msg1_acceleration_decode(tmp.acceleration);
                 signal_values[2] = (double)cmmc_msg1_distance_decode(tmp.distance);
                 signal_values[3] = (double)cmmc_msg1_status_decode(tmp.status);
-    
+
                 /* Assign to outputs */
                 *signal_names_ptr = signal_names;
                 *signal_values_ptr = signal_values;
@@ -51,7 +51,7 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
                 struct cmmc_msg2_t tmp;   // temporary structure
                 if (cmmc_msg2_unpack(&tmp, data, CMMC_MSG2_LENGTH))
                     return 2;
-                
+
                 /* Local static arrays so that the pointers remain valid after return */
                 static double signal_values[1]; 
                 static const char *signal_names[1] = {
@@ -60,7 +60,7 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
 
                 /* Decode all single signals */
                 signal_values[0] = (double)cmmc_msg2_somesignal_decode(tmp.somesignal);
-    
+
                 /* Assign to outputs */
                 *signal_names_ptr = signal_names;
                 *signal_values_ptr = signal_values;

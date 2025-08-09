@@ -16,33 +16,29 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
 
     switch(id)
     {
-        case %FRAME_ID%:
-            {
-                /* Unpack data into temporary structure */
-                struct %STRUCT% tmp;   // temporary structure
-                if (%UNPACK%(&tmp, data, %LENGTH%))
-                    return 2;
-
-                /* Local static arrays so that the pointers remain valid after return */
-                static double signal_values[%N_SIGNALS%]; 
-                static const char *signal_names[%N_SIGNALS%] = {
-                    %SIGNAL_NAMES_ORDERED_WITH_COMMAS%
-                };
-
-                /* Decode all single signals */
-                %DECODE%
-                // signal_values[0] = (double)cmmc_msg1_speed_decode(tmp.speed);
-                // signal_values[1] = (double)cmmc_msg1_acceleration_decode(tmp.acceleration);
-                // signal_values[2] = (double)cmmc_msg1_distance_decode(tmp.distance);
-                // signal_values[3] = (double)cmmc_msg1_status_decode(tmp.status);
-
-                /* Assign to outputs */
-                *signal_names_ptr = signal_names;
-                *signal_values_ptr = signal_values;
-                *nsignals_ptr = %N_SIGNALS%;
-                *frame_name_ptr = %FRAME_NAME%;
-                return 0;
-            }
+        // // case %FRAME_ID%:
+        // //     {
+        // //         /* Unpack data into temporary structure */
+        // //         struct %STRUCT_NAME% tmp;   // temporary structure
+        // //         if (%UNPACK_FUNCTION%(&tmp, data, %LENGTH%))
+        // //             return 2;
+        // // 
+        // //         /* Local static arrays so that the pointers remain valid after return */
+        // //         static double signal_values[%N_SIGNALS%]; 
+        // //         static const char *signal_names[%N_SIGNALS%] = {
+        // // %SIGNAL_NAMES_ORDERED%
+        // //         };
+        // // 
+        // //         /* Decode all single signals */
+        // //         %DECODE%
+        // // 
+        // //         /* Assign to outputs */
+        // //         *signal_names_ptr = signal_names;
+        // //         *signal_values_ptr = signal_values;
+        // //         *nsignals_ptr = %N_SIGNALS%;
+        // //         *frame_name_ptr = %FRAME_NAME%;
+        // //         return 0;
+        // //     }
         default:
             return 1; // ID not known
     }

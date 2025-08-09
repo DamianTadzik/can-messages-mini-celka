@@ -13,23 +13,20 @@ movefile([database_name '.h'], 'src');
 
 
 %% Generate code from template_decoder.c and name it %database_name%_can_decoder.c
-generate_decoder(database_name)
-
+decoder_name = generate_database_decoder(database_name);
+% decoder_name = 'test_database_decoder';
 
 %% Compile the mex function and copy it to src
+mex_source_file = ['cmex\' decoder_name '.c'];
 
-% mex_source_file = [database_name '_decoder'];
-mex_source_file = 'test_decoder';
+mex(mex_source_file, 'src\cmmc.c');
 
-mex(['cmex\' mex_source_file '.c'], 'src\cmmc.c');
-
-movefile([mex_source_file '.mexw64'], 'src');
-
+movefile([decoder_name '.mexw64'], 'src');
 
 %% TESTS
 addpath("src\");
 
-test_decoder(uint32(32), uint8([0 0 0 0 0 0 0 0]))
+test_database_decoder(uint32(32), uint8([0 2 0 0 0 2 0 0]))
 ans.signals
 
-clear test_decoder
+clear test_database_decoder

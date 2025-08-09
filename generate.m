@@ -13,6 +13,7 @@ movefile([database_name '.h'], 'src');
 
 
 %% Generate code from template_decoder.c and name it %database_name%_can_decoder.c
+generate_decoder(database_name)
 
 
 %% Compile the mex function and copy it to src
@@ -26,5 +27,9 @@ movefile([mex_source_file '.mexw64'], 'src');
 
 
 %% TESTS
+addpath("src\");
 
 test_decoder(uint32(32), uint8([0 0 0 0 0 0 0 0]))
+ans.signals
+
+clear test_decoder

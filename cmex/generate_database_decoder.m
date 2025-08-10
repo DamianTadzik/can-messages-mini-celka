@@ -60,7 +60,7 @@ function thisCase = populate_thisCase(thisCase, information)
     DECODE = '';
     for n = 1:numel(information.signal_names)
         x = lower(strrep(FRAME_NAME, '_NAME', ''));
-        d = lower(strrep(strrep(information.signal_names{1}, '_NAME', ''), [strrep(FRAME_NAME, '_NAME', '') '_'], ''));
+        d = lower(strrep(strrep(information.signal_names{n}, '_NAME', ''), [strrep(FRAME_NAME, '_NAME', '') '_'], ''));
         DECODE = sprintf('%ssignal_values[%d] = (double)%s_%s_decode(tmp.%s);\n                ',DECODE,n-1,x,d,d);
     end
     thisCase = strrep(thisCase, '%DECODE%', DECODE);

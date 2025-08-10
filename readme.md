@@ -5,8 +5,11 @@ This is project that defines signals transmitted over the CAN(```can_messages_mi
 
 Based on this ```.dbc``` file the ```cmmc.c``` and ```cmmc.h``` sources are generated with python and cantools, they can be included later in any embedded project.
 
-Next, based on the previously generated files the ```cmmc_decoder.mex``` is generated, it can be used for efficient decoding of the can frames in the ```.m``` scripts.
+Next, based on the previously generated files the ```cmmc_database_decoder.mexw64``` is generated, it can be used for efficient decoding of the can frames in the ```.m``` scripts.
 
+##### In order to generate new src files just run the ```generate.m``` script
+
+##### Have fun!
 
 ### Detailed description of the common C sources generation based on ```.dbc```
 1. Launch the python enviromet ```source venv/Scripts/activate```
@@ -36,5 +39,3 @@ Next, based on the previously generated files the ```cmmc_decoder.mex``` is gene
 
 ## Useful resources:
 - [CSS Electronics DBC editor online](https://www.csselectronics.com/pages/dbc-editor-can-bus-database)
-- []()
-- []()

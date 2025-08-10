@@ -2,7 +2,7 @@
 % python -m cantools generate_c_source --use-float --database-name cmmc can_messages_mini_celka.dbc
 
 database_name = 'cmmc';
-dbc_file = 'test.dbc';
+dbc_file = 'can_messages_mini_celka.dbc';
 
 % Call the cantools from the venv
 system(['"', fullfile(pwd, 'venv', 'Scripts', 'python.exe'), '" -m cantools generate_c_source --use-float --database-name ' database_name ' ' dbc_file]);
@@ -24,9 +24,9 @@ mex(mex_source_file, 'src\cmmc.c');
 movefile([decoder_name '.mexw64'], 'src');
 
 %% TESTS
-addpath("src\");
-
-test_database_decoder(uint32(32), uint8([0 2 0 0 0 2 0 0]))
-ans.signals
-
-clear test_database_decoder
+% addpath("src\");
+% 
+% cmmc_database_decoder(uint32(32), uint8([0 2 0 0 0 2 0 0]))
+% ans.signals
+% 
+% clear cmmc_database_decoder

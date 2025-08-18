@@ -34,6 +34,13 @@ BS_:
 
 BU_: MINI_CELKA
 
+BO_ 63 TOF: 8 MINI_CELKA
+	SG_ RANGE_MM 		: 0|8@1+ (1,0) 		[0|255] "mm" Vector__XXX
+	SG_ SIGNAL_RATE_MCPS 	: 8|16@1+ (0.0078125,0) [0|10] "MCPS" Vector__XXX
+	SG_ ERROR_STATUS 	: 24|8@1+ (1,0)	 	[0|31] "" Vector__XXX
+	SG_ RTN_AMBIENT_RATE 	: 32|16@1+ (0.125,0) 	[0|8191] "KCount per sec" Vector__XXX	
+	SG_ RTN_RATE 		: 48|16@1+ (0.125,0) 	[0|8191] "KCount per sec" Vector__XXX
+
 BO_ 64 SERVO_POSITION: 8 MINI_CELKA
 	SG_ SETPOINT : 0|16@1+ (1,0) [900|2100] "" Vector__XXX
 	SG_ ADC_RAW : 16|16@1+ (1,0) [0|4095] "" Vector__XXX

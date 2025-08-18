@@ -16,6 +16,38 @@ int decode_frame(const uint32_t id, const uint8_t data[8],
 
     switch(id)
     {
+        case CMMC_TOF_FRAME_ID:
+            {
+                /* Unpack data into temporary structure */
+                struct cmmc_tof_t tmp;   // temporary structure
+                if (cmmc_tof_unpack(&tmp, data, CMMC_TOF_LENGTH))
+                    return 2;
+        
+                /* Local static arrays so that the pointers remain valid after return */
+                static double signal_values[5]; 
+                static const char *signal_names[5] = {
+                    CMMC_TOF_RANGE_MM_NAME,
+                    CMMC_TOF_SIGNAL_RATE_MCPS_NAME,
+                    CMMC_TOF_ERROR_STATUS_NAME,
+                    CMMC_TOF_RTN_AMBIENT_RATE_NAME,
+                    CMMC_TOF_RTN_RATE_NAME
+                };
+        
+                /* Decode all single signals */
+                signal_values[0] = (double)cmmc_tof_range_mm_decode(tmp.range_mm);
+                signal_values[1] = (double)cmmc_tof_signal_rate_mcps_decode(tmp.signal_rate_mcps);
+                signal_values[2] = (double)cmmc_tof_error_status_decode(tmp.error_status);
+                signal_values[3] = (double)cmmc_tof_rtn_ambient_rate_decode(tmp.rtn_ambient_rate);
+                signal_values[4] = (double)cmmc_tof_rtn_rate_decode(tmp.rtn_rate);
+                
+        
+                /* Assign to outputs */
+                *signal_names_ptr = signal_names;
+                *signal_values_ptr = signal_values;
+                *nsignals_ptr = 5;
+                *frame_name_ptr = CMMC_TOF_NAME;
+                return 0;
+            }
         case CMMC_SERVO_POSITION_FRAME_ID:
             {
                 /* Unpack data into temporary structure */

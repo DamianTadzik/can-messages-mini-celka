@@ -34,31 +34,34 @@ BS_:
 
 BU_: MINI_CELKA ACHTER_BOARD FORE_BOARD ODESC
 
-
-BO_ 1 ODRIVE_HEARTBEAT	:	6	ODESC
-	SG_ Axis_Error : 0|32@1+ (1,0) [0|4294967295] "" Vector_XXX
-	SG_ Axis_Current_State : 32|8@1+ (1,0) [0|255] "" Vector_XXX
-	SG_ Controller_Status : 40|8@1+ (1,0) [0|255] "" Vector_XXX
+BO_ 1 ODRIVE_HEARTBEAT: 8 ODESC
+    SG_ Axis_Error              : 0|32@1+  (1,0) [0|4294967295] ""  Vector_XXX
+    SG_ Axis_Current_State      : 32|8@1+  (1,0) [0|255]           ""  Vector_XXX
+    SG_ Motor_Error_Flag        : 40|1@1+  (1,0) [0|1]             ""  Vector_XXX
+    SG_ Encoder_Error_Flag      : 41|1@1+  (1,0) [0|1]             ""  Vector_XXX
+    SG_ Controller_Error_Flag   : 42|1@1+  (1,0) [0|1]             ""  Vector_XXX
+    SG_ Trajectory_Done_Flag    : 47|1@1+  (1,0) [0|1]             ""  Vector_XXX
 
 BO_ 7 ODRIVE_SET_REQUESTED_STATE: 4 ODESC
 	SG_ Axis_Requested_State : 0|32@1+ (1,0) [0|4294967295] "" Vector_XXX
 
-BO_ 9 ODRIVE_ENCODER_ESTIMATES: 8 ODESC
-	SG_ Encoder_Pos_Estimate : 0|32@1+ (1,0) [0|0] "" Vector_XXX
-	SG_ Encoder_Vel_Estimate : 32|32@1+ (1,0) [0|0] "" Vector_XXX
-
 BO_ 13 ODRIVE_SET_INPUT_VEL: 8 ODESC
-	SG_ Input_Vel : 0|32@1+ (1,0) [0|0] "" Vector_XXX
-	SG_ Torque_FF : 32|32@1+ (1,0) [0|0] "" Vector_XXX
+    SG_ Input_Vel               : 0|32@1+  (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
+    SG_ Torque_FF               : 32|32@1+ (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
 
-BO_ 15 ODRIVE_GET_SENSORLESS_ESTIMATES: 8 ODESC
-	SG_ Sensorless_Pos_Estimate : 0|32@1+ (1,0) [0|0] "" Vector_XXX
-	SG_ Sensorless_Vel_Estimate : 32|32@1+ (1,0) [0|0] "" Vector_XXX
+BO_ 20 ODRIVE_GET_IQ: 8 ODESC
+    SG_ Iq_Setpoint             : 0|32@1+  (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
+    SG_ Iq_Measured             : 32|32@1+ (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
 
-BO_ 17 ODRIVE_GET_VBUS_VOLTAGE: 4 ODESC
-	SG_ Vbus_Voltage : 0|32@1+ (1,0) [0|0] "" Vector_XXX
+BO_ 21 ODRIVE_GET_SENSORLESS_ESTIMATES: 8 ODESC
+    SG_ Sensorless_Pos_Estimate : 0|32@1+  (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
+    SG_ Sensorless_Vel_Estimate : 32|32@1+ (1,0) [0|0] "FLOAT32_IEEE" Vector_XXX
 
-BO_ 18 ODRIVE_CLEAR_ERRORS: 0 ODESC
+BO_ 23 ODRIVE_GET_BUS_VOLTAGE_CURRENT: 8 ODESC
+    SG_ Bus_Voltage 		: 0|32@1+  (1,0) [0|0] "V FLOAT32_IEEE"  Vector_XXX
+    SG_ Bus_Current             : 32|32@1+ (1,0) [0|0] "A FLOAT32_IEEE" Vector_XXX
+
+BO_ 24 ODRIVE_CLEAR_ERRORS: 0 ODESC
 
 
 BO_ 32 RADIO_CONTROL	:	8	ACHTER_BOARD

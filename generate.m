@@ -11,19 +11,19 @@ system(['"', fullfile(pwd, 'venv', 'Scripts', 'python.exe'), '" -m cantools gene
 movefile([database_name '.c'], 'src');
 movefile([database_name '.h'], 'src');
 
+%% Deprecated
+% %% Generate code from template_decoder.c and name it %database_name%_can_decoder.c
+% decoder_name = generate_database_decoder(database_name);
+% % decoder_name = 'test_database_decoder';
 
-%% Generate code from template_decoder.c and name it %database_name%_can_decoder.c
-decoder_name = generate_database_decoder(database_name);
-% decoder_name = 'test_database_decoder';
+% %% Compile the mex function and copy it to src
+% mex_source_file = ['cmex\' decoder_name '.c'];
+% 
+% mex(mex_source_file, 'src\cmmc.c');
+% 
+% movefile([decoder_name '.mexw64'], 'src');
 
-%% Compile the mex function and copy it to src
-mex_source_file = ['cmex\' decoder_name '.c'];
-
-mex(mex_source_file, 'src\cmmc.c');
-
-movefile([decoder_name '.mexw64'], 'src');
-
-%% TESTS
+% %% TESTS
 % addpath("src\");
 % 
 % cmmc_database_decoder(uint32(32), uint8([0 2 0 0 0 2 0 0]))

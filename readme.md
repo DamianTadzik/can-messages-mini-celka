@@ -1,11 +1,12 @@
 # CAN Messages - Mini Celka 
 
 ## Description
-This is project that defines signals transmitted over the CAN(```can_messages_mini_celka.dbc```).
+This is project that defines signals transmitted over the CAN ```can_messages_mini_celka.dbc```.
 
 Based on this ```.dbc``` file the ```cmmc.c``` and ```cmmc.h``` sources are generated with python and cantools, they can be included later in any embedded project.
 
-Next, based on the previously generated files the ```cmmc_database_decoder.mexw64``` is generated, it can be used for efficient decoding of the can frames in the ```.m``` scripts.
+Not used anymore:
+~~Next, based on the previously generated files the ```cmmc_database_decoder.mexw64``` is generated, it can be used for efficient decoding of the can frames in the ```.m``` scripts.~~
 
 ##### In order to generate new src files just run the ```generate.m``` script
 
@@ -17,11 +18,9 @@ Next, based on the previously generated files the ```cmmc_database_decoder.mexw6
 3. Run ```python -m cantools generate_c_source --use-float --database-name src/cmmc can_messages_mini_celka.dbc```
 4. To exit the venv ```deactivate```
 
-
 ## Requirements
 - Python 3.8
 - Matlab2018b+
-
 
 ### First ever launch of python enviroment:
 1. Install appropriate version of Python, and navigate to the repo

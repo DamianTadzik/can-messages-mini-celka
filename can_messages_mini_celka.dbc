@@ -71,8 +71,9 @@ BO_ 32 RADIO_CONTROL	:	8	ACHTER_BOARD
 	SG_ FRONT_ROLL	:	33|11@1-	(1,0)	[-1000|1000]	"permile"	Vector__XXX
 	SG_ REAR_PITCH	:	44|11@1-	(1,0)	[-1000|1000]	"permile"	Vector__XXX
 	
-	SG_ FREE_BITS	:	56|4@1+	(1,0)	[0|15]	"-"	Vector__XXX	
+	SG_ FREE_BITS	:	56|2@1+	(1,0)	[0|15]	"-"	Vector__XXX	
 
+	SG_ SYNC_SWITCH	:	58|2@1+	(1,0)	[0|3]	"-"	Vector__XXX	
 	SG_ ARM_SWITCH	:	60|2@1+	(1,0)	[0|3]	"-"	Vector__XXX
 	SG_ MODE_SWITCH	:	62|2@1+	(1,0)	[0|3]	"-"	Vector__XXX
 

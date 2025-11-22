@@ -77,8 +77,12 @@ BO_ 32 RADIO_CONTROL	:	8	ACHTER_BOARD
 	SG_ ARM_SWITCH	:	60|2@1+	(1,0)	[0|3]	"-"	Vector__XXX
 	SG_ MODE_SWITCH	:	62|2@1+	(1,0)	[0|3]	"-"	Vector__XXX
 
-BO_ 33 REGULATOR_CONTROL : 8 RPI
-	SG_ PADDING_TEMPORARY : 0|64@1-	(1,0) [-100|100] "" Vector__XXX
+BO_ 33 AUTO_CONTROL	:	5	RPI
+	SG_ FRONT_LEFT_SETPOINT  : 0|12@1-  (0.01,0) [-6|12] "deg" Vector__XXX
+	SG_ FRONT_RIGHT_SETPOINT : 12|12@1- (0.01,0) [-6|12] "deg" Vector__XXX
+	SG_ REAR_SETPOINT	 : 24|12@1- (0.01,0) [-6|12] "deg" Vector__XXX
+
+	SG_ PADDING : 36|2@1+	(1,0) [0|3] "" Vector__XXX
 
 
 

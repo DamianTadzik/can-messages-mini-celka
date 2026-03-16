@@ -97,6 +97,25 @@ BO_ 35 GYROSCOPE	:	6	FORE_BOARD
 	SG_ GZ : 32|16@1- (0.0609756, 0) [-2000|2000] "deg/s" Vector__XXX
 
 
+BO_ 36 GPS_MOTION: 6 FORE_BOARD
+    SG_ GroundSpeed : 0|16@1+ (0.001,0) [0|100] "m/s" Vector__XXX
+    SG_ Heading     : 16|16@1+ (1e-5,0) [0|360] "deg" Vector__XXX
+    SG_ FixType     : 32|8@1+ (1,0) [0|5] "" Vector__XXX
+    SG_ NumSV       : 40|8@1+ (1,0) [0|50] "" Vector__XXX
+
+VAL_ 36 FixType
+    0 "NO_FIX"
+    1 "DEAD_RECKONING"
+    2 "2D_FIX"
+    3 "3D_FIX"
+    4 "GNSS_DR_COMBINED"
+    5 "TIME_ONLY";
+
+BO_ 37 GPS_POSITION: 8 FORE_BOARD
+    SG_ Latitude  : 0|32@1- (1e-7,0) [-90|90] "deg" Vector__XXX
+    SG_ Longitude : 32|32@1- (1e-7,0) [-180|180] "deg" Vector__XXX
+
+
 BO_ 39 ACTUATOR_CONFIGURATION	:	1	MINI_CELKA 
 	SG_ REQUEST	:	0|4@1+	(1,0)	[0|3]	"-"	Vector_XXX
 	SG_ ACTUATOR	:	4|4@1+	(1,0)	[0|3]	"-"	Vector_XXX

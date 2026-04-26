@@ -97,13 +97,29 @@ BO_ 35 GYROSCOPE	:	6	FORE_BOARD
 	SG_ GZ : 32|16@1- (0.0609756, 0) [-2000|2000] "deg/s" Vector__XXX
 
 
-BO_ 36 GPS_MOTION: 6 FORE_BOARD
-    SG_ GroundSpeed : 0|16@1+ (0.001,0) [0|100] "m/s" Vector__XXX
-    SG_ Heading     : 16|16@1+ (1e-5,0) [0|360] "deg" Vector__XXX
-    SG_ FixType     : 32|8@1+ (1,0) [0|5] "" Vector__XXX
-    SG_ NumSV       : 40|8@1+ (1,0) [0|50] "" Vector__XXX
 
-VAL_ 36 FixType
+BO_ 36 GPS_MOTION: 8 FORE_BOARD
+    SG_ GroundSpeed : 0|16@1+ (0.001,0) [0|60] "m/s" Vector__XXX
+    SG_ Heading     : 16|26@1+ (1e-5,0) [0|360] "deg" Vector__XXX
+	SG_ SpeedAccuracyEstimate : 42|10@1+ (0.01,0) [0|10] "m/s" Vector__XXX
+	SG_ HeadingAccuracyEstimate : 52|12@1+ (0.01,0) [0|25] "deg" Vector__XXX
+
+BO_ 37 GPS_POSITION: 8 FORE_BOARD
+    SG_ Latitude  : 0|32@1- (1e-7,0) [-90|90] "deg" Vector__XXX
+    SG_ Longitude : 32|32@1- (1e-7,0) [-180|180] "deg" Vector__XXX
+
+BO_ 38 GPS_TIME_STATUS: 7 FORE_BOARD
+    SG_ Year  : 0|6@1+  (1,2020) [2020|2083] "year"   Vector__XXX
+    SG_ Month : 6|4@1+  (1,0)    [1|12]      "month"  Vector__XXX
+    SG_ Day   : 10|5@1+ (1,0)    [1|31]      "day"   Vector__XXX
+    SG_ Hour  : 15|5@1+ (1,0)    [0|23]      "hour"   Vector__XXX
+    SG_ Min   : 20|6@1+ (1,0)    [0|59]      "minute" Vector__XXX
+    SG_ Sec   : 26|6@1+ (1,0)    [0|60]      "second"   Vector__XXX
+    SG_ Valid : 32|8@1+ (1,0)    [0|15]      ""    Vector__XXX
+	SG_ FixType     : 40|8@1+ (1,0) [0|5] 	 "" Vector__XXX
+    SG_ NumSV       : 48|8@1+ (1,0) [0|50] 	 "" Vector__XXX
+
+VAL_ 38 FixType
     0 "NO_FIX"
     1 "DEAD_RECKONING"
     2 "2D_FIX"
@@ -111,9 +127,8 @@ VAL_ 36 FixType
     4 "GNSS_DR_COMBINED"
     5 "TIME_ONLY";
 
-BO_ 37 GPS_POSITION: 8 FORE_BOARD
-    SG_ Latitude  : 0|32@1- (1e-7,0) [-90|90] "deg" Vector__XXX
-    SG_ Longitude : 32|32@1- (1e-7,0) [-180|180] "deg" Vector__XXX
+CM_ SG_ 38 Valid "Validity flags: bit0=validDate, bit1=validTime, bit2=fullyResolved, bit3=validMag";
+
 
 
 BO_ 39 ACTUATOR_CONFIGURATION	:	1	MINI_CELKA 

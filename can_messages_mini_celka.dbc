@@ -87,14 +87,14 @@ BO_ 33 AUTO_CONTROL	:	5	RPI
 
 
 BO_ 34 ACCELEROMETER	:	6	FORE_BOARD
-	SG_ AX : 0|16@1- (0.000061035, 0) [-2|2] "g" Vector__XXX	
-	SG_ AY : 16|16@1- (0.000061035, 0) [-2|2] "g" Vector__XXX
-	SG_ AZ : 32|16@1- (0.000061035, 0) [-2|2] "g" Vector__XXX
+	SG_ AX : 0|16@1- (0.00006103515625, 0) [-2|2] "g" Vector__XXX	
+	SG_ AY : 16|16@1- (0.00006103515625, 0) [-2|2] "g" Vector__XXX
+	SG_ AZ : 32|16@1- (0.00006103515625, 0) [-2|2] "g" Vector__XXX
 	
 BO_ 35 GYROSCOPE	:	6	FORE_BOARD
-	SG_ GX : 0|16@1- (0.0609756, 0) [-2000|2000] "deg/s" Vector__XXX
-	SG_ GY : 16|16@1- (0.0609756, 0) [-2000|2000] "deg/s" Vector__XXX
-	SG_ GZ : 32|16@1- (0.0609756, 0) [-2000|2000] "deg/s" Vector__XXX
+	SG_ GX : 0|16@1- (0.0609756097560976, 0) [-2000|2000] "deg/s" Vector__XXX
+	SG_ GY : 16|16@1- (0.0609756097560976, 0) [-2000|2000] "deg/s" Vector__XXX
+	SG_ GZ : 32|16@1- (0.0609756097560976, 0) [-2000|2000] "deg/s" Vector__XXX
 
 
 
